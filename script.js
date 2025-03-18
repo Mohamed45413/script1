@@ -35,3 +35,4 @@ function changeiconcopy(iconElement) {
   iconElement.classList.remove('fa-copy');
   iconElement.classList.add('fa-check');
 }
+alert("hi")
