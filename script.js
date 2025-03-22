@@ -3,35 +3,59 @@ function getTime() {
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
-  
-  // إضافة صفر في حال كانت الأرقام أقل من 10
-  if (hours < 10) {
-    hours = "0" + hours;
-  }
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-  
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
   return hours + ":" + minutes + ":" + seconds;
 }
-function type_time(){
-    let type_time 
-    if(new Date().getHours()>12){
-    type_time = 'PM'
-    }
-    else{
-      type_time = 'AM'
-    }
-    return type_time
-  }
-function copy(id){
-  let code = document.getElementById(id).innerText
-  navigator.clipboard.writeText(code)
-  }
+function type_time() {
+  return new Date().getHours() >= 12 ? "PM" : "AM";
+}
+function copy(id) {
+  let code = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(code);
+}
 function changeiconcopy(iconElement) {
-  iconElement.classList.remove('fa-copy');
-  iconElement.classList.add('fa-check');
+  iconElement.classList.replace('fa-copy', 'fa-check');
+  setTimeout(() => {
+    iconElement.classList.replace('fa-check', 'fa-copy');
+  }, 2000);
+}
+function creatpassed(Passed, Check, Small, Capital,N,Btn) {
+  let passed = document.getElementById(Passed);
+  let passlength = document.getElementById(Check);
+  let small = document.getElementById(Small);
+  let capital = document.getElementById(Capital);
+  let btn = document.getElementById(Btn)
+  let minLength =N; // الحد الأدنى للطول
+  
+  passed.addEventListener("input", function() {
+    let error = [];
+    
+    if (passed.value.length >= minLength) {
+      passlength.classList.add("check");
+    } else {
+      passlength.classList.remove("check");
+      error.push("check");
+    }
+    
+    if (/[a-z]/.test(passed.value)) {
+      small.classList.add("check");
+    } else {
+      small.classList.remove("check");
+      error.push("small");
+    }
+    
+    if (/[A-Z]/.test(passed.value)) {
+      capital.classList.add("check");
+    } else {
+      capital.classList.remove("check");
+      error.push("capital");
+    }
+    if (error.length > 0) {
+      btn.setAttribute("disabled", "disabled");
+    } else {
+      btn.removeAttribute("disabled");
+    }
+  });
 }
