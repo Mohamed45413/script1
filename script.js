@@ -21,7 +21,11 @@ function changeiconcopy(iconElement) {
     iconElement.classList.replace('fa-check', 'fa-copy');
   }, 2000);
 }
-function creatpassed(Passed, Check, Small, Capital,N,Btn) {
+function creatpassed(Passed, Check, Small, Capital,N,Btn,Color) {
+  let styles=`<style>.check{
+    color:${Color}
+  }</style>`
+  document.body.innerHTML+=styles
   let passed = document.getElementById(Passed);
   let passlength = document.getElementById(Check);
   let small = document.getElementById(Small);
