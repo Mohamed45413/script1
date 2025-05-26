@@ -1,0 +1,22 @@
+[
+  {
+    "name": "kk Doe",
+    "age": 44,
+    "isStudent": false,
+    "hobbies": ["reading", "gaming", "coding"],
+    "address": {
+      "street": "123 Main St",
+      "city": "tanger"
+    }
+  },
+  {
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false,
+    "hobbies": ["reading", "gaming", "coding"],
+    "address": {
+      "street": "123 Main St",
+      "city": "New York"
+    }
+  }
+]
